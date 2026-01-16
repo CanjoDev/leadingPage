@@ -41,7 +41,10 @@
   --section-right-2: rgba(246, 240, 232, 0.28);
 }
 
-html[data-theme="light"] { color-scheme: light; }
+html[data-theme="light"] { 
+   --taupe: #1C1A1D;
+  --stroke: rgba(243, 238, 232, 0.10);
+  color-scheme: light; }
 
 /* Dark theme: bordô + cinza (lux quente) */
 html[data-theme="dark"] {

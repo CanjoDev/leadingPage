@@ -221,7 +221,7 @@ export function SecondFold({
         backdropFilter: "blur(100px)",
       }}
     >
-      <p className="lux-h text-xl font-semibold text-[color:var(--taupe)]">
+      <p className="lux-h text-xl font-semibold text-[color:var(--emerald)]">
         Oferta especial (a menor do ano)
       </p>
 

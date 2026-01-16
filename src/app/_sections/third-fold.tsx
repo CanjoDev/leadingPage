@@ -98,11 +98,11 @@ export function ThirdFold({ offerAnchor }: { offerAnchor: string }) {
 
                 <p>O jeito mais humano e acessível que encontrei de te ajudar neste ano!</p>
 
-                <p className="pt-2 font-semibold text-[color:var(--ink)] opacity-80">
+                <p className="pt-2 font-semibold text-[color:var(--bordo)] opacity-80">
                   VOCÊ VAI PERDER ESSA OPORTUNIDADE?
                 </p>
 
-                <p className="font-semibold text-[color:var(--ink)] opacity-80">
+                <p className="font-semibold text-[color:var(--bordo)] opacity-80">
                   E AINDA A POSSIBILIDADE DE TER UM ENCONTRO INDIVIDUAL COMIGO DE 45MIN?
                 </p>
               </div>
