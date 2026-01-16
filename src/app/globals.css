@@ -1,0 +1,153 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Lux base */
+  --bg: #F6F0E8;                 /* bege premium */
+  --surface: rgba(255,255,255,.92);
+  --ink: #1d1410;                /* quase preto quente */
+  --muted: rgba(29, 20, 16, 0.68);
+
+  /* Brand accents */
+  --wine: #7b1020;               /* bordô */
+  --emerald: #0f6d52;
+  --bordo: #7b1020;              /* alias bordô */
+  --gold: #C9A45C;               /* dourado suave */
+  --taupe: #E8DED2;              /* marrom/bege para superfícies */
+
+  /* Layout vars */
+  --header-h: 64px;              /* h-16 (evita sobreposição do hero) */
+
+  /* strokes + shadows */
+  --stroke: rgba(29, 20, 16, 0.10);
+  --shadow-soft: 0 14px 34px rgba(17, 12, 9, 0.10);
+  --shadow: 0 24px 60px rgba(17, 12, 9, 0.12);
+
+  /* glow sutil */
+  --glow: rgba(123, 16, 32, 0.10);
+}
+
+* { box-sizing: border-box; }
+/* html, body { height: 100%; }
+
+/*
+  Evita que anchors (#conteudo, #bonus, etc.) fiquem escondidos atrás do header sticky.
+  Também deixa a navegação pelos links do header mais “premium”.
+*/
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-h);
+}
+
+/* Gradiente suave por bloco (canto superior esquerdo -> canto inferior direito) */
+.section-gradient {
+  position: relative;
+  overflow: hidden;
+
+  background: linear-gradient(
+    135deg,
+    rgba(201, 164, 92, 0.14) 0%,
+    rgba(246, 240, 232, 0.90) 55%,
+    rgba(232, 222, 210, 0.60) 100%
+  );
+}
+
+/* “Luzes” nos cantos do bloco */
+.section-gradient::before,
+.section-gradient::after {
+  content: "";
+  position: absolute;
+  top: -220px;
+  width: 520px;
+  height: 520px;
+  border-radius: 999px;
+  filter: blur(46px);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+/* luz superior esquerda */
+.section-gradient::before {
+  left: -220px;
+  background: radial-gradient(
+    circle,
+    rgba(201, 164, 92, 0.55) 0%,
+    rgba(201, 164, 92, 0.18) 38%,
+    rgba(201, 164, 92, 0.00) 70%
+  );
+}
+
+/* luz superior direita */
+.section-gradient::after {
+  right: -220px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.72) 0%,
+    rgba(246, 240, 232, 0.28) 40%,
+    rgba(246, 240, 232, 0.00) 72%
+  );
+}
+
+
+
+body {
+  background:
+    radial-gradient(1200px 700px at 78% 10%, rgba(201,164,92,.20), transparent 60%),
+    radial-gradient(900px 560px at 18% 80%, rgba(123,16,32,.06), transparent 60%),
+    radial-gradient(1000px 650px at 84% 92%, rgba(29,20,16,.08), transparent 60%),
+    linear-gradient(180deg, #F6F0E8 0%, #EFE6DA 60%, #E9DDCF 100%);
+  color: var(--ink);
+  font-family: var(--font-body), system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  letter-spacing: -0.01em;
+} 
+
+::selection { background: rgba(201, 164, 92, 0.28); }
+
+/* Headings */
+.lux-h {
+  font-family: var(--font-heading), serif;
+  letter-spacing: -0.02em;
+}
+
+/* Cards e frames */
+.lux-card {
+  background: var(--surface);
+  border: 1px solid var(--stroke);
+  border-radius: 1.25rem;
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(10px);
+}
+
+.lux-frame {
+  background: linear-gradient(180deg, rgba(238,232,226,.92), rgba(238,232,226,.55));
+  border: 1px solid rgba(29,20,16,0.08);
+  border-radius: 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+/* Botão premium */
+.lux-btn {
+  background: var(--bordo);
+  color: #fff;
+  border-radius: 999px;
+  box-shadow: 0 18px 35px rgba(123, 16, 32, 0.22);
+  transition: transform .18s ease, filter .18s ease, box-shadow .18s ease;
+}
+.lux-btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.03);
+  box-shadow: 0 22px 44px rgba(123, 16, 32, 0.26);
+}
+.lux-btn:active { transform: translateY(0px); }
+
+/* Realce APENAS para 7Ds / 7 dias */
+.mark-7d {
+  background: linear-gradient(90deg, rgba(123,16,32,.18), rgba(123,16,32,.10));
+  border: 1px solid rgba(123,16,32,.18);
+  border-radius: .6rem;
+  padding: .08rem .5rem;
+}
+
+/* texto auxiliar */
+.text-muted { color: var(--muted); }
