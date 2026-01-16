@@ -11,20 +11,20 @@ import {
   PrimaryButton,
   ImageFrame,
 } from "../_components/landing-ui";
+import { ScrollReveal } from "../_components/scroll-reveal";
 
 export function FirstFold({ offerAnchor }: { offerAnchor: string }) {
   return (
     <>
       {/* HERO */}
-      <section
-        className="section-gradient py-14 md:py-20"
-        style={{ paddingTop: "calc(var(--header-h) + 32px)" }}
-      >
-        <Container>
-          <div className="grid items-center gap-10 md:grid-cols-2">
+      <section className="section-gradient">
+        <div className="py-14 md:py-20">
+          <ScrollReveal>
+            <Container>
+            <div className="grid items-center gap-10 md:grid-cols-2">
             <div>
               {/* ORIGINAL (PDF): "Permita-se viver sua melhor versão em 2026" */}
-              <p className="mb-4 text-[0.95rem] font-medium text-black/60 md:text-base">
+              <p className="mb-4 text-[0.95rem] font-medium text-[color:var(--muted)] md:text-base">
                 Permita-se viver sua melhor versão em 2026
               </p>
 
@@ -37,7 +37,7 @@ export function FirstFold({ offerAnchor }: { offerAnchor: string }) {
               </h1>
 
               {/* ALTERADO: manter "o guia" em minúsculo e texto 1:1 */}
-              <p className="mt-5 max-w-xl text-base leading-relaxed text-black/65 md:text-lg">
+              <p className="mt-5 max-w-xl text-base leading-relaxed text-[color:var(--muted)] md:text-lg">
                 o guia definitivo para você se tornar <strong>inconfundível</strong>,{" "}
                 <strong>inesquecível</strong> e ocupar o seu lugar no mundo
               </p>
@@ -62,7 +62,7 @@ export function FirstFold({ offerAnchor }: { offerAnchor: string }) {
                         style={{ color: "var(--emerald)" }}
                       />
                     </span>
-                    <p className="text-sm leading-relaxed text-black/70 md:text-base">
+                    <p className="text-sm leading-relaxed text-[color:var(--muted)] md:text-base">
                       {t}
                     </p>
                   </div>
@@ -113,25 +113,29 @@ export function FirstFold({ offerAnchor }: { offerAnchor: string }) {
                 style={{ background: "rgba(29,20,16,.07)" }}
               />
             </div>
-          </div>
-        </Container>
+            </div>
+            </Container>
+          </ScrollReveal>
+        </div>
       </section>
 
       {/* PROBLEMA */}
-      <section className="section-gradient py-14 md:py-20">
-        <Container>
-          <div className="mx-auto max-w-4xl text-center">
+      <section className="section-gradient">
+        <div className="py-14 md:py-20">
+          <ScrollReveal>
+            <Container>
+            <div className="mx-auto max-w-4xl text-center">
             <h2 className="lux-h text-3xl font-semibold leading-tight md:text-5xl">
               Você sente que sua presença está travada?
             </h2>
 
-            <p className="mt-6 text-base leading-relaxed text-black/65 md:text-lg">
+            <p className="mt-6 text-base leading-relaxed text-[color:var(--muted)] md:text-lg">
               Que toda vez que precisa se expor — seja para gravar um story, produzir conteúdo,
               conduzir uma reunião com um cliente ou falar do seu serviço para um desconhecido —
               você paralisa?
             </p>
 
-            <p className="mt-6 text-sm leading-relaxed text-black/55 md:text-base">
+            <p className="mt-6 text-sm leading-relaxed text-[color:var(--muted)] md:text-base">
               A verdade é que a maioria das mulheres trava não por falta de capacidade ou
               conhecimento.
               <br />
@@ -141,7 +145,7 @@ export function FirstFold({ offerAnchor }: { offerAnchor: string }) {
               E sem essa clareza, qualquer exposição exige esforço demais e perde naturalidade.
             </p>
 
-            <p className="mt-6 text-sm leading-relaxed text-black/55 md:text-base">
+            <p className="mt-6 text-sm leading-relaxed text-[color:var(--muted)] md:text-base">
               Sem contar a procrastinação e o peso silencioso de sentir que tudo depende de você
               para fazer acontecer.
             </p>
@@ -155,7 +159,7 @@ export function FirstFold({ offerAnchor }: { offerAnchor: string }) {
               }}
             >
               <CheckCircle2 className="h-5 w-5" style={{ color: "var(--emerald)" }} />
-              <span className="font-semibold text-black/80">Este guia resolve isso.</span>
+              <span className="font-semibold text-[color:var(--ink)] opacity-80">Este guia resolve isso.</span>
             </div>
 
             <div className="mt-10">
@@ -170,21 +174,25 @@ export function FirstFold({ offerAnchor }: { offerAnchor: string }) {
                 </div>
               </LuxCard>
             </div>
-          </div>
-        </Container>
+            </div>
+            </Container>
+          </ScrollReveal>
+        </div>
       </section>
 
       {/* PARA QUEM É (mantido como reforço visual, mas com copy alinhada ao PDF) */}
-      <section className="section-gradient py-14 md:py-20">
-        <Container>
-          <div className="grid items-center gap-10 md:grid-cols-2">
+      <section className="section-gradient">
+        <div className="py-14 md:py-20">
+          <ScrollReveal>
+            <Container>
+            <div className="grid items-center gap-10 md:grid-cols-2">
             <div>
               <h3 className="lux-h text-3xl font-semibold tracking-tight md:text-4xl">
                 - Aplicável para toda profissional que empreende e deseja ser protagonista da sua
                 história
               </h3>
 
-              <div className="mt-6 space-y-4 text-base leading-relaxed text-black/70">
+              <div className="mt-6 space-y-4 text-base leading-relaxed text-[color:var(--muted)]">
                 <p className="text-sm md:text-base" style={{ color: "var(--muted)" }}>
                   - prático e objetivo com exercícios aplicação
                 </p>
@@ -211,8 +219,10 @@ export function FirstFold({ offerAnchor }: { offerAnchor: string }) {
                 />
               </div>
             </LuxCard>
-          </div>
-        </Container>
+            </div>
+            </Container>
+          </ScrollReveal>
+        </div>
       </section>
     </>
   );

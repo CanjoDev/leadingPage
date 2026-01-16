@@ -38,12 +38,13 @@ export function LuxCard({
   return (
     <Card
       className={[
-        "rounded-3xl border border-black/5",
-        "shadow-[0_24px_60px_rgba(17,12,9,0.12)]",
+        "rounded-3xl border",
+        "shadow-[var(--shadow)]",
         className,
       ].join(" ")}
       style={{
-        background: "rgba(255,255,255,0.84)",
+        background: "var(--surface)",
+        borderColor: "var(--stroke)",
         backdropFilter: "blur(10px)",
       }}
     >

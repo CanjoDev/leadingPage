@@ -24,7 +24,19 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-BR" className={`${heading.variable} ${body.variable}`}>
+    <html
+      lang="pt-BR"
+      className={`${heading.variable} ${body.variable}`}
+      suppressHydrationWarning
+    >
+      <head>
+        <script
+          // Set theme BEFORE paint to avoid flicker.
+          dangerouslySetInnerHTML={{
+            __html: `(()=>{try{const k='theme';const saved=localStorage.getItem(k);const prefers=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;const theme=(saved==='light'||saved==='dark')?saved:(prefers?'dark':'light');document.documentElement.dataset.theme=theme;}catch(e){}})();`,
+          }}
+        />
+      </head>
       <body>{children}</body>
     </html>
   );

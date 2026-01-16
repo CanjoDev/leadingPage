@@ -26,10 +26,60 @@
 
   /* glow sutil */
   --glow: rgba(123, 16, 32, 0.10);
+
+  /* Body background tokens (light) */
+  --bg-mid: #EFE6DA;
+  --bg-end: #E9DDCF;
+  --glow-gold: rgba(201,164,92,.20);
+  --glow-wine: rgba(123,16,32,.06);
+  --glow-ink: rgba(29,20,16,.08);
+
+  /* Section gradient tokens (light) */
+  --section-mid: rgba(246, 240, 232, 0.90);
+  --section-end: rgba(232, 222, 210, 0.60);
+  --section-right-1: rgba(255, 255, 255, 0.72);
+  --section-right-2: rgba(246, 240, 232, 0.28);
+}
+
+html[data-theme="light"] { color-scheme: light; }
+
+/* Dark theme: bordô + cinza (lux quente) */
+html[data-theme="dark"] {
+  --bg: #121113;
+  --surface: rgba(24, 23, 26, 0.88);
+  --ink: #F3EEE8;
+  --muted: rgba(243, 238, 232, 0.68);
+
+  --taupe: #1C1A1D;
+  --stroke: rgba(243, 238, 232, 0.10);
+
+  --wine: #7B1020;
+  --bordo: #7B1020;
+  --gold: #C9A45C;
+  --emerald: #0F6D52;
+
+  --shadow-soft: 0 16px 40px rgba(0, 0, 0, 0.38);
+  --shadow: 0 28px 70px rgba(0, 0, 0, 0.46);
+  --glow: rgba(123, 16, 32, 0.22);
+
+  /* Body background tokens (dark) */
+  --bg-mid: #0E0D10;
+  --bg-end: #0A090C;
+  --glow-gold: rgba(201,164,92,.12);
+  --glow-wine: rgba(123,16,32,.20);
+  --glow-ink: rgba(0,0,0,.42);
+
+  /* Section gradient tokens (dark) */
+  --section-mid: rgba(18, 17, 19, 0.92);
+  --section-end: rgba(28, 26, 29, 0.78);
+  --section-right-1: rgba(255, 255, 255, 0.08);
+  --section-right-2: rgba(243, 238, 232, 0.06);
+
+  color-scheme: dark;
 }
 
 * { box-sizing: border-box; }
-/* html, body { height: 100%; }
+html, body { height: 100%; }
 
 /*
   Evita que anchors (#conteudo, #bonus, etc.) fiquem escondidos atrás do header sticky.
@@ -43,13 +93,14 @@ html {
 /* Gradiente suave por bloco (canto superior esquerdo -> canto inferior direito) */
 .section-gradient {
   position: relative;
-  overflow: hidden;
+  overflow: visible;
+  isolation: isolate;
 
   background: linear-gradient(
     135deg,
     rgba(201, 164, 92, 0.14) 0%,
-    rgba(246, 240, 232, 0.90) 55%,
-    rgba(232, 222, 210, 0.60) 100%
+    var(--section-mid) 55%,
+    var(--section-end) 100%
   );
 }
 
@@ -83,9 +134,9 @@ html {
   right: -220px;
   background: radial-gradient(
     circle,
-    rgba(255, 255, 255, 0.72) 0%,
-    rgba(246, 240, 232, 0.28) 40%,
-    rgba(246, 240, 232, 0.00) 72%
+    var(--section-right-1) 0%,
+    var(--section-right-2) 40%,
+    transparent 72%
   );
 }
 
@@ -93,10 +144,10 @@ html {
 
 body {
   background:
-    radial-gradient(1200px 700px at 78% 10%, rgba(201,164,92,.20), transparent 60%),
-    radial-gradient(900px 560px at 18% 80%, rgba(123,16,32,.06), transparent 60%),
-    radial-gradient(1000px 650px at 84% 92%, rgba(29,20,16,.08), transparent 60%),
-    linear-gradient(180deg, #F6F0E8 0%, #EFE6DA 60%, #E9DDCF 100%);
+    radial-gradient(1200px 700px at 78% 10%, var(--glow-gold), transparent 60%),
+    radial-gradient(900px 560px at 18% 80%, var(--glow-wine), transparent 60%),
+    radial-gradient(1000px 650px at 84% 92%, var(--glow-ink), transparent 60%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg-mid) 60%, var(--bg-end) 100%);
   color: var(--ink);
   font-family: var(--font-body), system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   letter-spacing: -0.01em;
@@ -104,10 +155,39 @@ body {
 
 ::selection { background: rgba(201, 164, 92, 0.28); }
 
+html[data-theme="dark"] ::selection { background: rgba(123, 16, 32, 0.38); }
+
 /* Headings */
 .lux-h {
   font-family: var(--font-heading), serif;
   letter-spacing: -0.02em;
+}
+
+/* Scroll reveal (aparecer ao descer) */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px) scale(0.985);
+  filter: blur(6px);
+  transition:
+    opacity 700ms cubic-bezier(.2,.8,.2,1),
+    transform 700ms cubic-bezier(.2,.8,.2,1),
+    filter 700ms cubic-bezier(.2,.8,.2,1);
+  will-change: opacity, transform, filter;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+  }
 }
 
 /* Cards e frames */

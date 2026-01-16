@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 "use client";
 
 import Image from "next/image";
@@ -5,13 +6,16 @@ import Image from "next/image";
 import { Separator } from "@/components/ui/separator";
 
 import { Container, ImageFrame, LuxCard, PrimaryButton } from "../_components/landing-ui";
+import { ScrollReveal } from "../_components/scroll-reveal";
 
 export function ThirdFold({ offerAnchor }: { offerAnchor: string }) {
   return (
     <>
       {/* O QUE É */}
-      <section id="sobre" className="section-gradient py-14 md:py-20 scroll-mt-24">
-        <Container>
+      <section id="sobre" className="section-gradient">
+        <div className="py-14 md:py-20">
+          <ScrollReveal>
+            <Container>
           <div className="grid items-center gap-10 md:grid-cols-2">
             <ImageFrame>
               <div className="relative aspect-square w-full overflow-hidden rounded-2xl">
@@ -29,14 +33,14 @@ export function ThirdFold({ offerAnchor }: { offerAnchor: string }) {
                 O QUE É O "DESTRAVE SUA PRESENÇA"?
               </h3>
 
-              <p className="mt-4 text-base leading-relaxed text-black/60 md:text-lg">
-                (Texto): Não é apenas um e-book. É uma Mentoria de Bolso. Desenvolvi um método de 7
+              <p className="mt-4 text-base leading-relaxed text-[color:var(--muted)] md:text-lg">
+                 Não é apenas um e-book. É uma Mentoria de Bolso. Desenvolvi um método de 7
                 etapas que une Ciência Comportamental, Semiótica e Estratégia de Marca.
               </p>
 
               <Separator className="my-6" />
 
-              <p className="text-base leading-relaxed text-black/60 md:text-lg">
+              <p className="text-base leading-relaxed text-[color:var(--muted)] md:text-lg">
                 Minha missão com este material é tirar você do modo "Performance" (tentar parecer
                 alguém) e te colocar no modo "Essência" (sustentar quem você é com elegância).
               </p>
@@ -48,21 +52,25 @@ export function ThirdFold({ offerAnchor }: { offerAnchor: string }) {
               </div>
             </div>
           </div>
-        </Container>
+            </Container>
+          </ScrollReveal>
+        </div>
       </section>
 
       {/* VOCÊ ESTÁ INVISÍVEL */}
-      <section id="essencia" className="section-gradient py-14 md:py-20 scroll-mt-24">
-        <Container>
+      <section id="essencia" className="section-gradient">
+        <div className="py-14 md:py-20">
+          <ScrollReveal delay={90}>
+            <Container>
           <div className="mx-auto max-w-5xl">
             <h3 className="lux-h text-center text-3xl font-semibold tracking-tight md:text-4xl">
               VOCÊ ESTÁ INVISÍVEL? RESGATE SUA ESSÊNCIA.
             </h3>
 
             <LuxCard className="mt-8 p-8 md:p-10">
-              <div className="space-y-5 text-sm leading-relaxed text-black/65 md:text-base">
+              <div className="space-y-5 text-sm leading-relaxed text-[color:var(--muted)] md:text-base">
                 <p>
-                  (Corpo do Texto): Você sente que tem potencial, competência e entrega resultados.. mas
+                  Você sente que tem potencial, competência e entrega resultados.. mas
                   quando a câmera liga, você trava? Quando a oportunidade vem, você a perde?
                 </p>
 
@@ -90,11 +98,11 @@ export function ThirdFold({ offerAnchor }: { offerAnchor: string }) {
 
                 <p>O jeito mais humano e acessível que encontrei de te ajudar neste ano!</p>
 
-                <p className="pt-2 font-semibold text-black/75">
+                <p className="pt-2 font-semibold text-[color:var(--ink)] opacity-80">
                   VOCÊ VAI PERDER ESSA OPORTUNIDADE?
                 </p>
 
-                <p className="font-semibold text-black/75">
+                <p className="font-semibold text-[color:var(--ink)] opacity-80">
                   E AINDA A POSSIBILIDADE DE TER UM ENCONTRO INDIVIDUAL COMIGO DE 45MIN?
                 </p>
               </div>
@@ -106,7 +114,9 @@ export function ThirdFold({ offerAnchor }: { offerAnchor: string }) {
               </div>
             </LuxCard>
           </div>
-        </Container>
+            </Container>
+          </ScrollReveal>
+        </div>
       </section>
     </>
   );

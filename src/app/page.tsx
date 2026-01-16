@@ -11,7 +11,7 @@ const OFFER_ANCHOR = "#oferta";
 
 export default function Page() {
   return (
-<main className="relative flex min-h-screen flex-col overflow-hidden">
+<main className="relative flex min-h-screen flex-col overflow-x-hidden">
   <LandingHeader offerAnchor={OFFER_ANCHOR} />
 
   <div className="flex-1">
